@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\URP\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\IlanCharacterController.cs" />
+    <Compile Include="Assets\Scripts\WaypointGizmo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
