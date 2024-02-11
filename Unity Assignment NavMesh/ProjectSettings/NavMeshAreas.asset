@@ -13,8 +13,8 @@ NavMeshProjectSettings:
     cost: 2
   - name: Mud
     cost: 125
-  - name: 
-    cost: 1
+  - name: Firezone
+    cost: 999999
   - name: 
     cost: 1
   - name: 
