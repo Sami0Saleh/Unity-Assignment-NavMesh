@@ -5,20 +5,18 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] Camera camera;
-    [SerializeField] Transform Player1;
-    [SerializeField] Transform Player2;
-    
+    private Vector3 _right = new Vector3(0.1f,0,0);
+    private Vector3 _left = new Vector3(-0.1f,0,0);
+
     private void Update()
     {
-        if (Player1.position.x < Player2.position.x)
+        if (Input.GetKey(KeyCode.D))
         {
-            camera.transform.SetParent(Player1.transform, true);
-            camera.transform.rotation = Player1.rotation;
+            camera.transform.Translate(_right);
         }
-        else if (Player2.position.x < Player1.position.x)
+        if (Input.GetKey(KeyCode.A))
         {
-            camera.transform.SetParent(Player2.transform, true);
-            camera.transform.rotation = Player2.rotation;
+            camera.transform.Translate(_left);
         }
     }
 }

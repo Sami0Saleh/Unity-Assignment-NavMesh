@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\EndBanner.cs" />
     <Compile Include="Assets\Scripts\NavMeshObstacle.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerControlled.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

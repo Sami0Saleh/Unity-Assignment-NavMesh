@@ -10,12 +10,14 @@ public class NavMeshObstacle : MonoBehaviour
     private float _speed;
     Vector3 MoveLeft = Vector3.left;
     Vector3 MoveRight = Vector3.right;
+    public float minSpeed = 7;
+    public float maxSpeed = 13;
 
     // Start is called before the first frame update
     void Start()
     {
         StartingPos = transform.position;
-        _speed = Random.Range(3, 7);
+        _speed = Random.Range(minSpeed, maxSpeed);
     }
 
     // Update is called once per frame
