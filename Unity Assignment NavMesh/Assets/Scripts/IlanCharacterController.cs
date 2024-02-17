@@ -13,8 +13,6 @@ public class IlanCharacterController : MonoBehaviour
 
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
-    [SerializeField] TextMeshProUGUI Text;
-
     private int currentWaypointIndex = 0;
     private void Start()
     {
@@ -29,20 +27,7 @@ public class IlanCharacterController : MonoBehaviour
             if (currentWaypointIndex >= pathWaypoints.Length)
                 currentWaypointIndex = 0;
             navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
-        }
-        if (transform.position.x <= -70.03)
-        {
-            switch (this.tag)
-            {
-                case "red": { Text.color = Color.red; break; }
-                case "blue": { Text.color = Color.blue; break; }
-                case "yellow": { Text.color = Color.yellow; break; }
-
-                default: break;
-            }
-            Text.text = $"{this.tag} Won";
-            Text.text = $"{this.tag} Won";
-            Time.timeScale = 0f;
+            
         }
     
      

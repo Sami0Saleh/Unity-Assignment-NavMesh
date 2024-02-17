@@ -6,10 +6,11 @@ public class NavMeshObstacle : MonoBehaviour
 {
     public Vector3 StartingPos;
     public Vector3 EndingPos;
-    public bool Direction = false;
-    private float _speed;
     Vector3 MoveLeft = Vector3.left;
     Vector3 MoveRight = Vector3.right;
+    public bool Direction = false;
+    private float _speed;
+   
     public float minSpeed = 7;
     public float maxSpeed = 13;
 

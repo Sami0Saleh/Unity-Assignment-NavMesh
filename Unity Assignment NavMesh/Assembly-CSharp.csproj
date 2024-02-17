@@ -62,8 +62,8 @@
   <ItemGroup>
     <Compile Include="Assets\URP\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\IlanCharacterController.cs" />
-    <Compile Include="Assets\Scripts\EndBanner.cs" />
     <Compile Include="Assets\Scripts\NavMeshObstacle.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\PlayerControlled.cs" />
   </ItemGroup>
