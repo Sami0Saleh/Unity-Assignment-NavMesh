@@ -9,8 +9,6 @@ using UnityEngine.AI;
 
 public class IlanCharacterController : MonoBehaviour
 {
-    private const int mudAreaID = 3;
-
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
     private int currentWaypointIndex = 0;
@@ -21,6 +19,7 @@ public class IlanCharacterController : MonoBehaviour
 
     private void Update()
     {
+
         if (!navMeshAgent.isStopped && navMeshAgent.remainingDistance <= 0.1f)
         {
             currentWaypointIndex++;
@@ -28,11 +27,10 @@ public class IlanCharacterController : MonoBehaviour
                 currentWaypointIndex = 0;
             navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
             
-        }
-    
-     
+        }  
     }
-    
+ 
 
-    
+
+
 }

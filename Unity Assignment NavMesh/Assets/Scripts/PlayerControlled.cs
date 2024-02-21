@@ -6,11 +6,18 @@ using UnityEngine.AI;
 
 public class PlayerControlled : MonoBehaviour
 {
+    public OffMeshLinkMoveMethod m_Method = OffMeshLinkMoveMethod.Parabola;
+    public AnimationCurve m_Curve = new AnimationCurve();
+
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
     private Vector3 PlayerClick;
     private bool hasMoved = false;
-    
+
+    private void Start()
+    {
+        navMeshAgent.autoTraverseOffMeshLink = false;
+    }
     void Update()
     {
         if (!navMeshAgent.isStopped && hasMoved)
@@ -29,8 +36,9 @@ public class PlayerControlled : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
                 PlayerClick = hit.point;
             pathWaypoints[0].position = PlayerClick;
-
         }
         
     }
+   
+    
 }
