@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
             else { winning = "red"; }
            Place.color = Color.magenta; Place.text = "3rd Place"; return;
         }
-        else { Debug.Log("What?"); }
 
     }
 
