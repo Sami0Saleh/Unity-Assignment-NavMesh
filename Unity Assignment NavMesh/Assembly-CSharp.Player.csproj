@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\URP\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Scripts\AgentLinkMoverUnity.cs" />
     <Compile Include="Assets\Scripts\IlanCharacterController.cs" />
     <Compile Include="Assets\Scripts\NavMeshObstacle.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

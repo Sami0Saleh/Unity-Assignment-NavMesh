@@ -6,9 +6,6 @@ using UnityEngine.AI;
 
 public class PlayerControlled : MonoBehaviour
 {
-    public OffMeshLinkMoveMethod m_Method = OffMeshLinkMoveMethod.Parabola;
-    public AnimationCurve m_Curve = new AnimationCurve();
-
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
     private Vector3 PlayerClick;
