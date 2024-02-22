@@ -12,7 +12,6 @@ public class IlanCharacterController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
-    [SerializeField] private NavMeshLink Link;
     private int currentWaypointIndex = 0;
     private bool Jumping = false;
     private float jumpHeight = 2.0f;
@@ -27,29 +26,31 @@ public class IlanCharacterController : MonoBehaviour
     {
         if (navMeshAgent.isOnOffMeshLink)
         {
-            
-         /*   Vector3 start = Link.startPoint;
-            Vector3 end = Link.endPoint;
+            Jumping = true;
+            OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
+            Vector3 startPos = data.startPos;
+            Vector3 endPos = data.endPos;
 
             if (timeElapsed < jumpDuration)
             {
                 float t = timeElapsed / jumpDuration;
-                navMeshAgent.transform.position = Vector3.Lerp(start, end, t) + jumpHeight * Vector3.up;
-                timeElapsed += Time.deltaTime;
-            }*/
-
-            
+                float yOffset = jumpHeight * 4.0f * (t - t * t);
+                navMeshAgent.transform.position = Vector3.Lerp(startPos, endPos, t) + yOffset * Vector3.up;
+                timeElapsed += Time.deltaTime / jumpDuration;
+            }
+            else
+            {
+                navMeshAgent.transform.position = data.endPos;
+                Jumping = false;
+            }
         }
         if (!navMeshAgent.isStopped && navMeshAgent.remainingDistance <= 0.1f && Jumping == false)
         {
+            Debug.Log(navMeshAgent.isStopped);
             currentWaypointIndex++;
             if (currentWaypointIndex >= pathWaypoints.Length)
                 currentWaypointIndex = 0;
             navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);       
         }
     }
-
-
-
-
 }
