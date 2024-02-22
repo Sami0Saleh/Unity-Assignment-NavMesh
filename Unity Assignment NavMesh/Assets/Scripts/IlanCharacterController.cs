@@ -24,9 +24,14 @@ public class IlanCharacterController : MonoBehaviour
 
     private void Update()
     {
+
         if (navMeshAgent.isOnOffMeshLink)
         {
-            Jumping = true;
+        Jumping = true;
+        }
+
+        if (Jumping == true)
+        { 
             OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
             Vector3 startPos = data.startPos;
             Vector3 endPos = data.endPos;
@@ -42,15 +47,8 @@ public class IlanCharacterController : MonoBehaviour
             {
                 navMeshAgent.transform.position = data.endPos;
                 Jumping = false;
+               
             }
-        }
-        if (!navMeshAgent.isStopped && navMeshAgent.remainingDistance <= 0.1f && Jumping == false)
-        {
-            Debug.Log(navMeshAgent.isStopped);
-            currentWaypointIndex++;
-            if (currentWaypointIndex >= pathWaypoints.Length)
-                currentWaypointIndex = 0;
-            navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);       
         }
     }
 }

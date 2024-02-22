@@ -4042,6 +4042,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yellow Player + Animation
       objectReference: {fileID: 0}
+    - target: {fileID: 1364989092608528370, guid: 06275c38ab05bf148b961a2a854b1f68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1853999760621868360, guid: 06275c38ab05bf148b961a2a854b1f68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4489,6 +4494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blue Player + Animation Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983595558218475823, guid: bd1104302c5d6d2479eff464c091d4a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8983595558218475823, guid: bd1104302c5d6d2479eff464c091d4a9,
         type: 3}
