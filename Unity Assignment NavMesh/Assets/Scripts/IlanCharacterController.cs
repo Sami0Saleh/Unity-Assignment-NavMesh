@@ -21,34 +21,35 @@ public class IlanCharacterController : MonoBehaviour
     {
         navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
     }
-
     private void Update()
     {
-
-        if (navMeshAgent.isOnOffMeshLink)
+        if (navMeshAgent.isOnOffMeshLink && !Jumping)
         {
+            StartCoroutine(Jump());
+        }
+    }
+    IEnumerator Jump()
+    {
         Jumping = true;
+
+        OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
+        Vector3 startPos = navMeshAgent.transform.position;
+        Vector3 endPos = data.endPos;
+
+        float timeElapsed = 0f;
+
+        while (timeElapsed < jumpDuration)
+        {
+            float t = timeElapsed / jumpDuration;
+            float yOffset = jumpHeight * 4.0f * (t - t * t);
+            navMeshAgent.transform.position = Vector3.Lerp(startPos, endPos, t) + yOffset * Vector3.up;
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
 
-        if (Jumping == true)
-        { 
-            OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
-            Vector3 startPos = data.startPos;
-            Vector3 endPos = data.endPos;
+        navMeshAgent.transform.position = endPos;
+        Jumping = false;
 
-            if (timeElapsed < jumpDuration)
-            {
-                float t = timeElapsed / jumpDuration;
-                float yOffset = jumpHeight * 4.0f * (t - t * t);
-                navMeshAgent.transform.position = Vector3.Lerp(startPos, endPos, t) + yOffset * Vector3.up;
-                timeElapsed += Time.deltaTime / jumpDuration;
-            }
-            else
-            {
-                navMeshAgent.transform.position = data.endPos;
-                Jumping = false;
-               
-            }
-        }
+        navMeshAgent.CompleteOffMeshLink();
     }
 }
